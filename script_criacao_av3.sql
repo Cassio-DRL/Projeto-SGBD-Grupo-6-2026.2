@@ -93,7 +93,7 @@ CREATE TABLE Apoiar (
 CREATE TABLE Doacao (
     id_doacao NUMBER,
     doador VARCHAR2(11) NOT NULL,
-    campanha NUMBER,
+    campanha NUMBER NOT NULL,
     data DATE DEFAULT SYSDATE NOT NULL,
     tipo VARCHAR2(20) NOT NULL,
     valor NUMBER(10,2),
@@ -101,7 +101,7 @@ CREATE TABLE Doacao (
     CONSTRAINT fk_doacao_doador FOREIGN KEY (doador) REFERENCES Doador(cpf_doador),
     CONSTRAINT fk_doacao_campanha FOREIGN KEY (campanha) REFERENCES Campanha(id_campanha),
     CONSTRAINT chk_doacao_tipo CHECK (tipo IN ('FINANCEIRA', 'MATERIAL')),
-    CONSTRAINT chk_doacao_valor CHECK (valor IS NULL OR valor >= 0)
+    CONSTRAINT chk_doacao_valor CHECK ((tipo = 'FINANCEIRA' AND valor > 0) OR (tipo = 'MATERIAL' AND valor IS NULL))
 );
 
 CREATE TABLE Item_doacao (
