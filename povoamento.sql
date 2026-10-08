@@ -42,6 +42,7 @@ INSERT INTO Doador (cpf_doador) VALUES ('11111111102');
 INSERT INTO Doador (cpf_doador) VALUES ('11111111103');
 INSERT INTO Doador (cpf_doador) VALUES ('11111111104');
 INSERT INTO Doador (cpf_doador) VALUES ('11111111105');
+INSERT INTO Doador (cpf_doador) VALUES ('11111111108');
 
 -- VOLUNTARIOS
 INSERT INTO Voluntario (cpf_voluntario, supervisor) VALUES ('11111111106', NULL);
@@ -56,6 +57,7 @@ INSERT INTO Beneficiario (cpf_beneficiario) VALUES ('11111111112');
 INSERT INTO Beneficiario (cpf_beneficiario) VALUES ('11111111113');
 INSERT INTO Beneficiario (cpf_beneficiario) VALUES ('11111111114');
 INSERT INTO Beneficiario (cpf_beneficiario) VALUES ('11111111115');
+INSERT INTO Beneficiario (cpf_beneficiario) VALUES ('11111111105');
 
 -- PROJETOS SOCIAIS
 INSERT INTO Projeto_social (id_projeto, nome_projeto, area_atuacao) VALUES (seq_projeto.NEXTVAL, 'Alimentar Recife', 'Alimentacao');
@@ -72,6 +74,7 @@ INSERT INTO Atuacao (id_atuacao, voluntario, projeto, data_inicio, data_termino)
 INSERT INTO Atuacao (id_atuacao, voluntario, projeto, data_inicio, data_termino) VALUES (seq_atuacao.NEXTVAL, '11111111110', 4, DATE '2026-05-20', NULL);
 INSERT INTO Atuacao (id_atuacao, voluntario, projeto, data_inicio, data_termino) VALUES (seq_atuacao.NEXTVAL, '11111111106', 5, DATE '2026-06-01', NULL);
 INSERT INTO Atuacao (id_atuacao, voluntario, projeto, data_inicio, data_termino) VALUES (seq_atuacao.NEXTVAL, '11111111108', 2, DATE '2026-01-15', DATE '2026-06-30');
+INSERT INTO Atuacao (id_atuacao, voluntario, projeto, data_inicio, data_termino) VALUES (seq_atuacao.NEXTVAL, '11111111108', 2, DATE '2026-08-01', NULL);
 
 -- ATENDIMENTOS
 INSERT INTO Atender (beneficiario, projeto) VALUES ('11111111111', 1);
@@ -82,6 +85,7 @@ INSERT INTO Atender (beneficiario, projeto) VALUES ('11111111113', 4);
 INSERT INTO Atender (beneficiario, projeto) VALUES ('11111111114', 3);
 INSERT INTO Atender (beneficiario, projeto) VALUES ('11111111115', 2);
 INSERT INTO Atender (beneficiario, projeto) VALUES ('11111111115', 5);
+INSERT INTO Atender (beneficiario, projeto) VALUES ('11111111105', 1);
 
 -- CAMPANHAS
 INSERT INTO Campanha (id_campanha, nome_campanha, meta_arrecadacao) VALUES (seq_campanha.NEXTVAL, 'Natal Sem Fome', 50000.00);
@@ -108,6 +112,7 @@ INSERT INTO Doacao (id_doacao, doador, campanha, data, tipo, valor) VALUES (seq_
 INSERT INTO Doacao (id_doacao, doador, campanha, data, tipo, valor) VALUES (seq_doacao.NEXTVAL, '11111111102', 2, DATE '2026-09-22', 'MATERIAL', NULL);
 INSERT INTO Doacao (id_doacao, doador, campanha, data, tipo, valor) VALUES (seq_doacao.NEXTVAL, '11111111103', 3, DATE '2026-09-25', 'MATERIAL', NULL);
 INSERT INTO Doacao (id_doacao, doador, campanha, data, tipo, valor) VALUES (seq_doacao.NEXTVAL, '11111111105', 4, DATE '2026-09-28', 'MATERIAL', NULL);
+INSERT INTO Doacao (id_doacao, doador, campanha, data, tipo, valor) VALUES (seq_doacao.NEXTVAL, '11111111108', 1, DATE '2026-10-01', 'MATERIAL', NULL);
 
 -- ITENS DE DOACAO
 INSERT INTO Item_doacao (doacao, id_item, descricao, quantidade) VALUES (5, 1, 'Cesta basica', 20);
@@ -120,6 +125,7 @@ INSERT INTO Item_doacao (doacao, id_item, descricao, quantidade) VALUES (7, 1, '
 INSERT INTO Item_doacao (doacao, id_item, descricao, quantidade) VALUES (7, 2, 'Casaco', 30);
 INSERT INTO Item_doacao (doacao, id_item, descricao, quantidade) VALUES (8, 1, 'Kit de higiene', 35);
 INSERT INTO Item_doacao (doacao, id_item, descricao, quantidade) VALUES (8, 2, 'Caixa de sabonete', 20);
+INSERT INTO Item_doacao (doacao, id_item, descricao, quantidade) VALUES (9, 1, 'Cesta basica', 15);
 
 -- ENTREGAS
 INSERT INTO Entregar (voluntario, beneficiario, doacao, item, data_entrega, qtd_entrega) VALUES ('11111111106', '11111111111', 5, 1, DATE '2026-10-01', 2);
@@ -129,5 +135,8 @@ INSERT INTO Entregar (voluntario, beneficiario, doacao, item, data_entrega, qtd_
 INSERT INTO Entregar (voluntario, beneficiario, doacao, item, data_entrega, qtd_entrega) VALUES ('11111111110', '11111111113', 7, 1, DATE '2026-10-03', 2);
 INSERT INTO Entregar (voluntario, beneficiario, doacao, item, data_entrega, qtd_entrega) VALUES ('11111111109', '11111111114', 8, 1, DATE '2026-10-04', 2);
 INSERT INTO Entregar (voluntario, beneficiario, doacao, item, data_entrega, qtd_entrega) VALUES ('11111111106', '11111111111', 5, 2, DATE '2026-10-05', 3);
+INSERT INTO Entregar (voluntario, beneficiario, doacao, item, data_entrega, qtd_entrega) VALUES ('11111111106', '11111111111', 5, 1, DATE '2026-10-06', 1);
+INSERT INTO Entregar (voluntario, beneficiario, doacao, item, data_entrega, qtd_entrega) VALUES ('11111111106', '11111111111', 9, 1, DATE '2026-10-07', 2);
+
 
 COMMIT;
